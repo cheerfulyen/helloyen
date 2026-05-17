@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch, onMounted, onUnmounted } from 'vue'
+import { ref, watch, nextTick, onMounted, onUnmounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import './NavBar.css'
 
@@ -46,14 +46,14 @@ function handleScroll() {
   scrolled.value = window.scrollY > 40
 }
 
-function goToSection(hash: string) {
+async function goToSection(hash: string) {
   menuOpen.value = false
-  if (route.path === '/') {
-    const el = document.querySelector(hash)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
-  } else {
-    router.push('/' + hash)
+  if (route.path !== '/') {
+    await router.push('/')
+    await nextTick()
   }
+  const el = document.querySelector(hash)
+  if (el) el.scrollIntoView({ behavior: 'smooth' })
 }
 
 function goHome() {
