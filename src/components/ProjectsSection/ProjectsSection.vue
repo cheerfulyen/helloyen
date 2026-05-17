@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import Card from 'primevue/card'
+import Tag from 'primevue/tag'
+import Badge from 'primevue/badge'
 import './ProjectsSection.css'
 
 const projects = [
@@ -41,17 +44,28 @@ const projects = [
         <div
           v-for="project in projects"
           :key="project.title"
-          :class="['project-card', { featured: project.highlight }]"
+          :class="['project-featured', { 'project-featured': project.highlight }]"
         >
-          <div class="project-emoji">{{ project.emoji }}</div>
-          <div v-if="project.highlight" class="project-featured-badge">主要專案</div>
-          <h3 class="project-title">{{ project.title }}</h3>
-          <p class="project-subtitle">{{ project.subtitle }}</p>
-          <p v-if="project.note" class="project-note">📽 {{ project.note }}</p>
-          <p class="project-desc">{{ project.desc }}</p>
-          <div class="project-tags">
-            <span v-for="tag in project.tags" :key="tag" class="badge badge-primary">{{ tag }}</span>
-          </div>
+          <Card>
+            <template #content>
+              <div class="project-card-inner">
+                <Badge
+                  v-if="project.highlight"
+                  value="主要專案"
+                  severity="info"
+                  class="project-featured-badge"
+                />
+                <div class="project-emoji">{{ project.emoji }}</div>
+                <h3 class="project-title">{{ project.title }}</h3>
+                <p class="project-subtitle">{{ project.subtitle }}</p>
+                <p v-if="project.note" class="project-note">📽 {{ project.note }}</p>
+                <p class="project-desc">{{ project.desc }}</p>
+                <div class="project-tags">
+                  <Tag v-for="tag in project.tags" :key="tag" :value="tag" />
+                </div>
+              </div>
+            </template>
+          </Card>
         </div>
       </div>
     </div>

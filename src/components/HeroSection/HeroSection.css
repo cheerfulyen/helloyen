@@ -38,6 +38,14 @@
   margin-bottom: 24px;
 }
 
+/* PrimeVue Tag 覆寫：深色背景上的標籤 */
+.hero-badges .p-tag {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #f1f5f9 !important;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.8rem;
+}
+
 .hero-name {
   font-size: clamp(3rem, 6vw, 5rem);
   font-weight: 700;
@@ -75,6 +83,23 @@
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+}
+
+/* PrimeVue Button 覆寫：主按鈕深色背景 */
+.hero-actions .p-button {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 600;
+}
+
+.hero-actions .hero-btn-outline.p-button {
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  color: #f1f5f9 !important;
+}
+
+.hero-actions .hero-btn-outline.p-button:hover {
+  border-color: #38bdf8 !important;
+  color: #38bdf8 !important;
+  background: transparent !important;
 }
 
 .hero-avatar {
@@ -177,15 +202,8 @@
     justify-content: center;
   }
 
-  .avatar-ring {
-    width: 140px;
-    height: 140px;
-  }
-
-  .avatar-initials {
-    font-size: 2.8rem;
-  }
-
+  .avatar-ring { width: 140px; height: 140px; }
+  .avatar-initials { font-size: 2.8rem; }
   .deco-1 { width: 180px; height: 180px; }
   .deco-2 { width: 220px; height: 220px; }
 }

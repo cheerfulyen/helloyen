@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import Card from 'primevue/card'
+import ProgressBar from 'primevue/progressbar'
 import './SkillsSection.css'
 
 interface Skill {
@@ -80,26 +82,29 @@ onMounted(() => {
       <h2 class="section-title">技能 <span>專長</span></h2>
       <p class="section-subtitle">各項技術的熟練程度</p>
       <div class="skills-grid">
-        <div v-for="cat in categories" :key="cat.title" class="skill-card">
-          <div class="skill-card-header">
-            <span class="skill-emoji">{{ cat.emoji }}</span>
-            <h3 class="skill-cat-title">{{ cat.title }}</h3>
-          </div>
-          <div class="skill-list">
-            <div v-for="skill in cat.skills" :key="skill.name" class="skill-item">
-              <div class="skill-label">
-                <span class="skill-name">{{ skill.name }}</span>
-                <span class="skill-pct">{{ skill.level }}%</span>
-              </div>
-              <div class="skill-bar-bg">
-                <div
-                  class="skill-bar-fill"
-                  :style="{ width: animated ? skill.level + '%' : '0%' }"
-                ></div>
+        <Card v-for="cat in categories" :key="cat.title">
+          <template #title>
+            <div class="skill-card-title">
+              <span class="skill-emoji">{{ cat.emoji }}</span>
+              <span>{{ cat.title }}</span>
+            </div>
+          </template>
+          <template #content>
+            <div class="skill-list">
+              <div v-for="skill in cat.skills" :key="skill.name" class="skill-item">
+                <div class="skill-label">
+                  <span class="skill-name">{{ skill.name }}</span>
+                  <span class="skill-pct">{{ skill.level }}%</span>
+                </div>
+                <ProgressBar
+                  :value="animated ? skill.level : 0"
+                  :show-value="false"
+                  class="skill-bar"
+                />
               </div>
             </div>
-          </div>
-        </div>
+          </template>
+        </Card>
       </div>
     </div>
   </section>

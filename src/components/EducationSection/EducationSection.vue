@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import Card from 'primevue/card'
+import Tag from 'primevue/tag'
+import Chip from 'primevue/chip'
 import './EducationSection.css'
 
 const educations = [
@@ -39,33 +42,43 @@ const training = {
 
       <div class="edu-grid">
         <div class="edu-cards">
-          <div v-for="(edu, i) in educations" :key="i" class="edu-card">
-            <div class="edu-icon">🎓</div>
-            <div class="edu-content">
-              <div class="edu-meta">
-                <span class="edu-period">{{ edu.period }}</span>
-                <span class="edu-level">{{ edu.level }}</span>
+          <Card v-for="(edu, i) in educations" :key="i">
+            <template #content>
+              <div class="edu-card-inner">
+                <div class="edu-icon">🎓</div>
+                <div>
+                  <div class="edu-meta">
+                    <span class="edu-period">{{ edu.period }}</span>
+                    <Tag :value="edu.level" severity="info" />
+                  </div>
+                  <h3 class="edu-school">{{ edu.school }}</h3>
+                  <p class="edu-dept">{{ edu.dept }}</p>
+                  <ul class="edu-notes">
+                    <li v-for="(note, j) in edu.notes" :key="j">{{ note }}</li>
+                  </ul>
+                </div>
               </div>
-              <h3 class="edu-school">{{ edu.school }}</h3>
-              <p class="edu-dept">{{ edu.dept }}</p>
-              <ul class="edu-notes">
-                <li v-for="(note, j) in edu.notes" :key="j">{{ note }}</li>
-              </ul>
-            </div>
-          </div>
+            </template>
+          </Card>
         </div>
 
         <div class="training-card">
-          <div class="training-badge">專業培訓</div>
-          <h3 class="training-org">{{ training.org }}</h3>
-          <p class="training-name">{{ training.name }}</p>
-          <p class="training-role">擔任職務：{{ training.role }}</p>
-          <ul class="edu-notes" style="margin-bottom: 16px;">
-            <li v-for="(note, i) in training.notes" :key="i">{{ note }}</li>
-          </ul>
-          <div class="training-skills">
-            <span v-for="skill in training.skills" :key="skill" class="badge badge-primary">{{ skill }}</span>
-          </div>
+          <Card>
+            <template #content>
+              <div class="training-header">
+                <span class="training-label">專業培訓</span>
+                <p class="training-org">{{ training.org }}</p>
+                <p class="training-name">{{ training.name }}</p>
+              </div>
+              <p class="training-role">擔任職務：{{ training.role }}</p>
+              <ul class="edu-notes">
+                <li v-for="(note, i) in training.notes" :key="i">{{ note }}</li>
+              </ul>
+              <div class="training-skills">
+                <Chip v-for="skill in training.skills" :key="skill" :label="skill" />
+              </div>
+            </template>
+          </Card>
         </div>
       </div>
     </div>

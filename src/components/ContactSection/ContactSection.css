@@ -29,24 +29,28 @@
 .contact-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  gap: 16px;
   margin-bottom: 48px;
 }
 
-.contact-item {
+/* PrimeVue Card 覆寫：深色背景 */
+.contact-grid .p-card {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  box-shadow: none !important;
+  transition: background 0.2s, border-color 0.2s !important;
+}
+
+.contact-grid .p-card:hover {
+  background: rgba(56, 189, 248, 0.05) !important;
+  border-color: rgba(56, 189, 248, 0.15) !important;
+  transform: none !important;
+}
+
+.contact-item-inner {
   display: flex;
   gap: 16px;
   align-items: flex-start;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 12px;
-  padding: 20px;
-  transition: background 0.2s;
-}
-
-.contact-item:hover {
-  background: rgba(56, 189, 248, 0.05);
-  border-color: rgba(56, 189, 248, 0.15);
 }
 
 .contact-icon {
@@ -73,6 +77,7 @@
 
 .contact-value.link {
   color: #f1f5f9;
+  text-decoration: none;
   transition: color 0.2s;
 }
 

@@ -11,19 +11,10 @@
   gap: 20px;
 }
 
-.edu-card {
-  background: #fff;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 24px;
+.edu-card-inner {
   display: flex;
-  gap: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  transition: box-shadow 0.2s;
-}
-
-.edu-card:hover {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  gap: 14px;
+  align-items: flex-start;
 }
 
 .edu-icon {
@@ -36,7 +27,7 @@
 .edu-meta {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   margin-bottom: 6px;
   flex-wrap: wrap;
 }
@@ -47,18 +38,8 @@
   font-weight: 500;
 }
 
-.edu-level {
-  font-size: 0.75rem;
-  color: #0ea5e9;
-  background: rgba(56, 189, 248, 0.1);
-  border: 1px solid rgba(56, 189, 248, 0.3);
-  border-radius: 999px;
-  padding: 1px 8px;
-  font-weight: 600;
-}
-
 .edu-school {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: #1e293b;
   margin-bottom: 2px;
@@ -92,16 +73,15 @@
   font-weight: 700;
 }
 
-.training-card {
-  background: linear-gradient(135deg, #0f172a, #1e293b);
-  border-radius: 12px;
-  padding: 28px;
+/* Training 深色卡片覆寫 */
+.training-card .p-card {
+  background: linear-gradient(135deg, #0f172a, #1e293b) !important;
+  border-color: rgba(56, 189, 248, 0.2) !important;
   color: #f1f5f9;
-  position: relative;
   overflow: hidden;
 }
 
-.training-card::before {
+.training-card .p-card::before {
   content: '';
   position: absolute;
   top: -40px;
@@ -110,53 +90,50 @@
   height: 160px;
   border-radius: 50%;
   background: rgba(56, 189, 248, 0.06);
+  pointer-events: none;
 }
 
-.training-badge {
-  display: inline-block;
+.training-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 14px;
+}
+
+.training-label {
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 1px;
   color: #38bdf8;
-  background: rgba(56, 189, 248, 0.1);
-  border: 1px solid rgba(56, 189, 248, 0.3);
-  border-radius: 999px;
-  padding: 3px 12px;
-  margin-bottom: 16px;
 }
 
 .training-org {
   font-size: 1rem;
   font-weight: 700;
   color: #38bdf8;
-  margin-bottom: 4px;
 }
 
 .training-name {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 600;
   color: #f1f5f9;
-  margin-bottom: 4px;
 }
 
 .training-role {
   font-size: 0.85rem;
   color: #94a3b8;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .training-card .edu-notes li {
   color: #94a3b8;
 }
 
-.training-card .edu-notes li::before {
-  color: #38bdf8;
-}
-
 .training-skills {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+  margin-top: 14px;
 }
 
 @media (max-width: 800px) {

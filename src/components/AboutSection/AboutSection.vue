@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Tag from 'primevue/tag'
 import './AboutSection.css'
 </script>
 
@@ -42,7 +43,7 @@ import './AboutSection.css'
             </tr>
             <tr>
               <th>就業狀態</th>
-              <td><span class="status-badge">在職中</span></td>
+              <td><Tag value="在職中" severity="info" /></td>
             </tr>
             <tr>
               <th>工作年資</th>
@@ -58,7 +59,7 @@ import './AboutSection.css'
             </tr>
             <tr>
               <th>遠端工作</th>
-              <td>有意願</td>
+              <td><Tag value="有意願" severity="success" /></td>
             </tr>
             <tr>
               <th>可上班日</th>

@@ -41,31 +41,19 @@
 
 .info-table th {
   text-align: left;
-  padding: 10px 0;
+  padding: 10px 12px 10px 0;
   font-size: 0.82rem;
   font-weight: 600;
   color: #94a3b8;
   width: 90px;
   vertical-align: top;
-  padding-right: 12px;
 }
 
 .info-table td {
   padding: 10px 0;
   font-size: 0.88rem;
   color: #334155;
-  vertical-align: top;
-}
-
-.status-badge {
-  display: inline-block;
-  background: rgba(56, 189, 248, 0.12);
-  color: #0ea5e9;
-  border: 1px solid rgba(56, 189, 248, 0.3);
-  border-radius: 999px;
-  font-size: 0.78rem;
-  font-weight: 600;
-  padding: 2px 10px;
+  vertical-align: middle;
 }
 
 @media (max-width: 900px) {

@@ -1,5 +1,9 @@
 <script setup lang="ts">
+import Button from 'primevue/button'
+import Tag from 'primevue/tag'
 import './HeroSection.css'
+
+const traits = ['善於溝通', '認真負責', '樂於學習', '團隊合作']
 
 function scrollTo(href: string) {
   const el = document.querySelector(href)
@@ -13,10 +17,7 @@ function scrollTo(href: string) {
     <div class="container hero-inner">
       <div class="hero-content">
         <div class="hero-badges">
-          <span class="badge badge-dark">善於溝通</span>
-          <span class="badge badge-dark">認真負責</span>
-          <span class="badge badge-dark">樂於學習</span>
-          <span class="badge badge-dark">團隊合作</span>
+          <Tag v-for="trait in traits" :key="trait" :value="trait" />
         </div>
         <h1 class="hero-name">周彥宏</h1>
         <h2 class="hero-title">前端工程師</h2>
@@ -26,8 +27,14 @@ function scrollTo(href: string) {
           中壢資展國際前端工程師養成班 57 屆結訓學員
         </p>
         <div class="hero-actions">
-          <button class="btn btn-primary" @click="scrollTo('#projects')">查看作品</button>
-          <button class="btn btn-outline" @click="scrollTo('#contact')">聯絡我</button>
+          <Button label="查看作品" icon="pi pi-eye" @click="scrollTo('#projects')" />
+          <Button
+            label="聯絡我"
+            icon="pi pi-envelope"
+            outlined
+            class="hero-btn-outline"
+            @click="scrollTo('#contact')"
+          />
         </div>
       </div>
       <div class="hero-avatar">
