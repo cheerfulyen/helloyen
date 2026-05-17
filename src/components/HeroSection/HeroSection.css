@@ -106,7 +106,6 @@
   flex-shrink: 0;
 }
 
-/* 使用 box-shadow 取代 absolute deco div，不影響 layout/scrollWidth */
 .avatar-ring {
   width: 200px;
   height: 200px;
