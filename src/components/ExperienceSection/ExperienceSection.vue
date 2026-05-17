@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import Timeline from 'primevue/timeline'
 import Card from 'primevue/card'
 import Tag from 'primevue/tag'
 import './ExperienceSection.css'
@@ -62,37 +61,36 @@ const experiences = [
       <h2 class="section-title">工作 <span>經歷</span></h2>
       <p class="section-subtitle">總年資 7~8 年</p>
 
-      <Timeline :value="experiences" align="left" class="exp-timeline">
-        <template #marker="{ item }">
-          <div :class="['exp-marker', { 'is-current': item.current }]">
-            <i class="pi pi-briefcase"></i>
+      <div class="timeline">
+        <div
+          v-for="(exp, index) in experiences"
+          :key="index"
+          :class="['timeline-item', { current: exp.current }]"
+        >
+          <div class="timeline-dot">
+            <div class="dot-inner"></div>
           </div>
-        </template>
-
-        <template #content="{ item }">
-          <div :class="['exp-card', { 'current-card': item.current }]">
-            <Card>
-              <template #content>
-                <div class="exp-meta">
-                  <span class="exp-period">{{ item.period }}</span>
-                  <Tag v-if="item.current" value="仍在職" severity="info" />
-                  <span class="exp-duration">{{ item.duration }}</span>
-                </div>
-                <h3 class="exp-role">{{ item.role }}</h3>
-                <p class="exp-company">{{ item.company }}</p>
-                <p class="exp-detail">{{ item.industry }} · {{ item.location }}</p>
-                <p class="exp-salary">{{ item.salary }}</p>
-                <ul class="exp-points">
-                  <li v-for="(point, i) in item.points" :key="i">{{ point }}</li>
-                </ul>
-                <div class="exp-tags">
-                  <Tag v-for="tag in item.tags" :key="tag" :value="tag" />
-                </div>
-              </template>
-            </Card>
-          </div>
-        </template>
-      </Timeline>
+          <Card>
+            <template #content>
+              <div class="card-meta">
+                <span class="card-period">{{ exp.period }}</span>
+                <Tag v-if="exp.current" value="仍在職" severity="info" />
+                <span class="card-duration">{{ exp.duration }}</span>
+              </div>
+              <h3 class="card-role">{{ exp.role }}</h3>
+              <p class="card-company">{{ exp.company }}</p>
+              <p class="card-detail">{{ exp.industry }} · {{ exp.location }}</p>
+              <p class="card-salary">{{ exp.salary }}</p>
+              <ul class="card-points">
+                <li v-for="(point, i) in exp.points" :key="i">{{ point }}</li>
+              </ul>
+              <div class="card-tags">
+                <Tag v-for="tag in exp.tags" :key="tag" :value="tag" />
+              </div>
+            </template>
+          </Card>
+        </div>
+      </div>
     </div>
   </section>
 </template>
