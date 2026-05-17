@@ -4,6 +4,9 @@ import Works from '../pages/works/main.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
+  scrollBehavior() {
+    return { top: 0 }
+  },
   routes: [
     { path: '/', component: Home },
     { path: '/works', component: Works },
