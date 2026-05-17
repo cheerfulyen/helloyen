@@ -41,8 +41,6 @@ function scrollTo(href: string) {
         <div class="avatar-ring">
           <div class="avatar-initials">YH</div>
         </div>
-        <div class="avatar-deco deco-1"></div>
-        <div class="avatar-deco deco-2"></div>
       </div>
     </div>
     <div class="scroll-hint" @click="scrollTo('#about')">
