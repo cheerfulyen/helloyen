@@ -20,12 +20,13 @@ const sectionLinks = [
 
 let observer: IntersectionObserver | null = null
 
-function setupObserver() {
+async function setupObserver() {
   observer?.disconnect()
   if (route.path !== '/') {
     activeHash.value = ''
     return
   }
+  await nextTick()
   observer = new IntersectionObserver(
     (entries) => {
       for (const entry of entries) {
@@ -46,14 +47,14 @@ function handleScroll() {
   scrolled.value = window.scrollY > 40
 }
 
-async function goToSection(hash: string) {
+function goToSection(hash: string) {
   menuOpen.value = false
   if (route.path !== '/') {
-    await router.push('/')
-    await nextTick()
+    router.push({ path: '/', hash })
+  } else {
+    const el = document.querySelector(hash)
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
   }
-  const el = document.querySelector(hash)
-  if (el) el.scrollIntoView({ behavior: 'smooth' })
 }
 
 function goHome() {
