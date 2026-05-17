@@ -41,17 +41,3 @@ app.use(PrimeVue, {
 
 app.mount('#app')
 
-// DEV ONLY: find overflowing elements via scrollWidth
-if (import.meta.env.DEV) {
-  setTimeout(() => {
-    const docScrollW = document.documentElement.scrollWidth
-    const docClientW = document.documentElement.clientWidth
-    console.log('[RWD check] scrollWidth=', docScrollW, ' clientWidth=', docClientW, docScrollW > docClientW ? '⚠️ OVERFLOW!' : '✅ OK')
-    document.querySelectorAll('*').forEach(el => {
-      const h = el as HTMLElement
-      if (h.scrollWidth > h.clientWidth + 2) {
-        console.warn('[overflow src]', h.tagName, h.className?.slice(0, 80), '| scrollW=', h.scrollWidth, 'clientW=', h.clientWidth)
-      }
-    })
-  }, 1500)
-}
