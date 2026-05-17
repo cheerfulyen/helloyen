@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import './Works.css'
+import './works.css'
 
 const works = [
   {
