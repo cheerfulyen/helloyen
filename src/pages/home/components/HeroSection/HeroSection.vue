@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Button from 'primevue/button'
 import Tag from 'primevue/tag'
+import meImg from '@/assets/images/me.jpg'
 import './HeroSection.css'
 
 const traits = ['善於溝通', '認真負責', '樂於學習', '團隊合作']
@@ -39,7 +40,7 @@ function scrollTo(href: string) {
       </div>
       <div class="hero-avatar">
         <div class="avatar-ring">
-          <div class="avatar-initials">YH</div>
+          <img class="avatar-photo" :src="meImg" alt="周彥宏" />
         </div>
       </div>
     </div>
