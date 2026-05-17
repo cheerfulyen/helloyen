@@ -1,27 +1,43 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import './NavBar.css'
 
 const scrolled = ref(false)
 const menuOpen = ref(false)
+const route = useRoute()
+const router = useRouter()
 
-const navLinks = [
-  { label: '關於我', href: '#about' },
-  { label: '工作經歷', href: '#experience' },
-  { label: '學歷', href: '#education' },
-  { label: '技能', href: '#skills' },
-  { label: '專案', href: '#projects' },
-  { label: '聯絡', href: '#contact' },
+const sectionLinks = [
+  { label: '關於我', hash: '#about' },
+  { label: '工作經歷', hash: '#experience' },
+  { label: '學歷', hash: '#education' },
+  { label: '技能', hash: '#skills' },
+  { label: '專案', hash: '#projects' },
+  { label: '聯絡', hash: '#contact' },
 ]
 
 function handleScroll() {
   scrolled.value = window.scrollY > 40
 }
 
-function scrollTo(href: string) {
+function goToSection(hash: string) {
   menuOpen.value = false
-  const el = document.querySelector(href)
-  if (el) el.scrollIntoView({ behavior: 'smooth' })
+  if (route.path === '/') {
+    const el = document.querySelector(hash)
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
+  } else {
+    router.push('/' + hash)
+  }
+}
+
+function goHome() {
+  menuOpen.value = false
+  if (route.path === '/') {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  } else {
+    router.push('/')
+  }
 }
 
 onMounted(() => window.addEventListener('scroll', handleScroll))
@@ -31,14 +47,15 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 <template>
   <header :class="['navbar', { scrolled }]">
     <div class="container nav-inner">
-      <a class="logo" href="#" @click.prevent="scrollTo('#hero')">YH</a>
+      <a class="logo" href="#" @click.prevent="goHome">YH</a>
       <nav class="nav-links" :class="{ open: menuOpen }">
         <a
-          v-for="link in navLinks"
-          :key="link.href"
-          :href="link.href"
-          @click.prevent="scrollTo(link.href)"
+          v-for="link in sectionLinks"
+          :key="link.hash"
+          :href="link.hash"
+          @click.prevent="goToSection(link.hash)"
         >{{ link.label }}</a>
+        <RouterLink to="/works" @click="menuOpen = false">作品集</RouterLink>
       </nav>
       <button class="burger" @click="menuOpen = !menuOpen" aria-label="選單">
         <span></span><span></span><span></span>
