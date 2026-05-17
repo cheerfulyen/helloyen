@@ -192,6 +192,12 @@
     flex-direction: column-reverse;
     text-align: center;
     padding-top: 100px;
+    gap: 32px;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    width: 100%;
   }
 
   .hero-badges {
@@ -204,6 +210,5 @@
 
   .avatar-ring { width: 140px; height: 140px; }
   .avatar-initials { font-size: 2.8rem; }
-  .deco-1 { width: 180px; height: 180px; }
-  .deco-2 { width: 220px; height: 220px; }
+  .avatar-deco { display: none; }
 }

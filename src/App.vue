@@ -28,5 +28,7 @@ import ContactSection from './components/ContactSection/ContactSection.vue'
 <style>
 #app {
   min-height: 100vh;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 </style>
