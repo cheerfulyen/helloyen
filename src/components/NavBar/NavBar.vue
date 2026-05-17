@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, watch, onMounted, onUnmounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import './NavBar.css'
 
 const scrolled = ref(false)
 const menuOpen = ref(false)
+const activeHash = ref('')
 const route = useRoute()
 const router = useRouter()
 
@@ -16,6 +17,30 @@ const sectionLinks = [
   { label: '專案', hash: '#projects' },
   { label: '聯絡', hash: '#contact' },
 ]
+
+let observer: IntersectionObserver | null = null
+
+function setupObserver() {
+  observer?.disconnect()
+  if (route.path !== '/') {
+    activeHash.value = ''
+    return
+  }
+  observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          activeHash.value = '#' + entry.target.id
+        }
+      }
+    },
+    { rootMargin: '-10% 0px -80% 0px' },
+  )
+  sectionLinks.forEach(({ hash }) => {
+    const el = document.querySelector(hash)
+    if (el) observer!.observe(el)
+  })
+}
 
 function handleScroll() {
   scrolled.value = window.scrollY > 40
@@ -40,8 +65,15 @@ function goHome() {
   }
 }
 
-onMounted(() => window.addEventListener('scroll', handleScroll))
-onUnmounted(() => window.removeEventListener('scroll', handleScroll))
+watch(() => route.path, setupObserver)
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll)
+  setupObserver()
+})
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+  observer?.disconnect()
+})
 </script>
 
 <template>
@@ -53,6 +85,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
           v-for="link in sectionLinks"
           :key="link.hash"
           :href="link.hash"
+          :class="{ active: activeHash === link.hash }"
           @click.prevent="goToSection(link.hash)"
         >{{ link.label }}</a>
         <RouterLink to="/works" @click="menuOpen = false">作品集</RouterLink>

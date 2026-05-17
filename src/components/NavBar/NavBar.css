@@ -43,7 +43,8 @@
   transition: color 0.2s, background 0.2s;
 }
 
-.nav-links .router-link-exact-active {
+.nav-links .router-link-exact-active,
+.nav-links a.active {
   color: #38bdf8 !important;
   background: rgba(56, 189, 248, 0.08);
 }
@@ -53,7 +54,8 @@
   color: #475569;
 }
 
-.navbar.scrolled .nav-links .router-link-exact-active {
+.navbar.scrolled .nav-links .router-link-exact-active,
+.navbar.scrolled .nav-links a.active {
   color: #0ea5e9 !important;
 }
 
