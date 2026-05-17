@@ -40,3 +40,16 @@ app.use(PrimeVue, {
 })
 
 app.mount('#app')
+
+// DEV ONLY: find overflowing elements
+if (import.meta.env.DEV) {
+  setTimeout(() => {
+    const vw = document.documentElement.clientWidth
+    document.querySelectorAll('*').forEach(el => {
+      const r = el.getBoundingClientRect().right
+      if (r > vw) {
+        console.warn('[overflow]', el.tagName, (el as HTMLElement).className?.slice(0, 60), 'right=', Math.round(r), 'vw=', vw)
+      }
+    })
+  }, 1500)
+}
