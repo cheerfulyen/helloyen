@@ -90,6 +90,7 @@ onUnmounted(() => {
           @click.prevent="goToSection(link.hash)"
         >{{ link.label }}</a>
         <RouterLink to="/works" @click="menuOpen = false">作品集</RouterLink>
+        <RouterLink to="/gallery" @click="menuOpen = false">相片集</RouterLink>
       </nav>
       <button class="burger" @click="menuOpen = !menuOpen" aria-label="選單">
         <span></span><span></span><span></span>

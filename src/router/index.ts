@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { nextTick } from 'vue'
 import Home from '../pages/home/main.vue'
 import Works from '../pages/works/main.vue'
+import Gallery from '../pages/gallery/main.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,6 +15,7 @@ const router = createRouter({
   routes: [
     { path: '/', component: Home },
     { path: '/works', component: Works },
+    { path: '/gallery', component: Gallery },
   ],
 })
 
