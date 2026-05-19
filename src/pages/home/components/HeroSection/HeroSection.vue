@@ -24,7 +24,7 @@ function scrollTo(href: string) {
         </div>
         <h1 class="hero-name">周彥宏</h1>
         <h2 class="hero-title">前端工程師</h2>
-        <p class="hero-quote">"若想一步登天，必將摔得體無完膚"</p>
+        <p class="hero-quote">"擁抱變化，在敏捷中持續迭代與交付"</p>
         <p class="hero-desc">
           金融業系統實戰：應收帳款 · 網路銀行 · 無障礙網銀 · webView App<br>
           三大框架 Angular / React / Vue · 三大語言 HTML / CSS / JS<br>
@@ -35,13 +35,7 @@ function scrollTo(href: string) {
         </div>
         <div class="hero-actions">
           <Button label="查看作品" icon="pi pi-eye" @click="scrollTo('#projects')" />
-          <Button
-            label="聯絡我"
-            icon="pi pi-envelope"
-            outlined
-            class="hero-btn-outline"
-            @click="scrollTo('#contact')"
-          />
+          <Button label="聯絡我" icon="pi pi-envelope" outlined class="hero-btn-outline" @click="scrollTo('#contact')" />
         </div>
       </div>
       <div class="hero-avatar">
