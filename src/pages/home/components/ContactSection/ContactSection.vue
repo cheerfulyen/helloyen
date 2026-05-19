@@ -39,7 +39,7 @@ const contacts = [
     <div class="contact-bg"></div>
     <div class="container">
       <h2 class="section-title light">聯絡 <span>我</span></h2>
-      <p class="section-subtitle light">有任何合作機會或問題，歡迎隨時聯繫</p>
+      <p class="section-subtitle light">有任何問題或發輝專職的工作機會，歡迎隨時聯繫</p>
 
       <div class="contact-grid">
         <Card v-for="item in contacts" :key="item.label">
@@ -48,11 +48,7 @@ const contacts = [
               <div class="contact-icon">{{ item.icon }}</div>
               <div>
                 <p class="contact-label">{{ item.label }}</p>
-                <a
-                  v-if="item.href"
-                  :href="item.href"
-                  class="contact-value link"
-                >{{ item.value }}</a>
+                <a v-if="item.href" :href="item.href" class="contact-value link">{{ item.value }}</a>
                 <p v-else class="contact-value">{{ item.value }}</p>
                 <p v-if="item.note" class="contact-note">{{ item.note }}</p>
               </div>

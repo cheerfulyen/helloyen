@@ -20,7 +20,8 @@ import './AboutSection.css'
             畢業後加入 Toyota 擔任專員，學習如何與團隊有效溝通、從客戶角度思考問題。後參加<strong>資展國際前端工程師養成班（57 屆）</strong>，擔任小組組長，負責會議主導、進度控管、技術指導與人力分配。
           </p>
           <p>
-            正式進入軟體業後，於現職擔任前端工程師，參與多項金融業系統開發，包括應收帳款系統、網路銀行、無障礙網銀及無障礙匯利率官方網站等，主要以 Angular、React 進行開發，採前後端分離架構協作。
+            正式進入軟體業後，於現職擔任前端工程師，參與多項金融業系統開發，包括<strong>應收帳款系統、網路銀行、無障礙網銀及無障礙匯利率官方網站等，主要以 Angular、React
+              進行開發，採前後端分離架構協作</strong>。
           </p>
           <p>
             我特別重視程式結構的可讀性與維護性，並關注使用者體驗與無障礙設計，期望讓產品在功能與易用性上都能達到良好品質。
@@ -43,7 +44,9 @@ import './AboutSection.css'
             </tr>
             <tr>
               <th>就業狀態</th>
-              <td><Tag value="在職中" severity="info" /></td>
+              <td>
+                <Tag value="在職中" severity="info" />
+              </td>
             </tr>
             <tr>
               <th>工作年資</th>
@@ -59,7 +62,9 @@ import './AboutSection.css'
             </tr>
             <tr>
               <th>遠端工作</th>
-              <td><Tag value="有意願" severity="success" /></td>
+              <td>
+                <Tag value="有意願" severity="success" />
+              </td>
             </tr>
             <tr>
               <th>可上班日</th>

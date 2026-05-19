@@ -186,8 +186,9 @@
   .hero-inner {
     flex-direction: column-reverse;
     text-align: center;
-    padding-top: 100px;
-    gap: 32px;
+    padding-top: 80px;
+    padding-bottom: 48px;
+    gap: 16px;
   }
 
   .hero-content {
@@ -197,10 +198,29 @@
 
   .hero-badges {
     justify-content: center;
+    margin-bottom: 14px;
+  }
+
+  .hero-name {
+    margin-bottom: 4px;
+  }
+
+  .hero-title {
+    margin-bottom: 12px;
+  }
+
+  .hero-quote {
+    margin-bottom: 12px;
+  }
+
+  .hero-desc {
+    font-size: 0.875rem;
+    margin-bottom: 14px;
   }
 
   .hero-tags {
     justify-content: center;
+    margin-bottom: 20px;
   }
 
   .hero-actions {
@@ -208,11 +228,14 @@
   }
 
   .avatar-ring {
-    width: 140px;
-    height: 140px;
+    width: 100px;
+    height: 100px;
     box-shadow:
-      0 0 0 20px rgba(56, 189, 248, 0.06),
-      0 0 0 40px rgba(56, 189, 248, 0.04);
+      0 0 0 12px rgba(56, 189, 248, 0.06),
+      0 0 0 24px rgba(56, 189, 248, 0.04);
   }
 
+  .scroll-hint {
+    display: none;
+  }
 }

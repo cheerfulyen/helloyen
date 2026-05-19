@@ -43,6 +43,8 @@
   width: 100%;
   display: block;
   opacity: 0;
+  max-height: 320px;
+  object-fit: cover;
   transition: transform 0.35s ease, opacity 0.4s ease;
 }
 
@@ -87,12 +89,15 @@
 
 @media (max-width: 700px) {
   .photo-preview-grid {
-    columns: 2 160px;
+    columns: 2;
+    column-gap: 8px;
   }
-}
 
-@media (max-width: 440px) {
-  .photo-preview-grid {
-    columns: 1;
+  .photo-preview-item img {
+    max-height: 200px;
+  }
+
+  .photo-preview-item.is-loading {
+    min-height: 100px;
   }
 }
