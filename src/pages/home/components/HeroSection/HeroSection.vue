@@ -6,6 +6,8 @@ import './HeroSection.css'
 
 const traits = ['善於溝通', '認真負責', '樂於學習', '團隊合作']
 
+const techTags = ['Angular', 'React', 'Vue.js', 'Node.js', 'RESTful API', 'AI 工具']
+
 function scrollTo(href: string) {
   const el = document.querySelector(href)
   if (el) el.scrollIntoView({ behavior: 'smooth' })
@@ -24,9 +26,13 @@ function scrollTo(href: string) {
         <h2 class="hero-title">前端工程師</h2>
         <p class="hero-quote">"若想一步登天，必將摔得體無完膚"</p>
         <p class="hero-desc">
-          7~8 年工作經歷 · 熟悉 Angular / React · 金融業系統開發<br>
-          中壢資展國際前端工程師養成班 57 屆結訓學員
+          金融業系統實戰：應收帳款 · 網路銀行 · 無障礙網銀 · webView App<br>
+          三大框架 Angular / React / Vue · 三大語言 HTML / CSS / JS<br>
+          後端串接 Node.js / PHP / MySQL · 善用 AI 工具提升產能
         </p>
+        <div class="hero-tags">
+          <span v-for="tag in techTags" :key="tag" class="hero-tag">{{ tag }}</span>
+        </div>
         <div class="hero-actions">
           <Button label="查看作品" icon="pi pi-eye" @click="scrollTo('#projects')" />
           <Button

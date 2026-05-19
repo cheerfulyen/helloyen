@@ -25,7 +25,9 @@ const categories: SkillCategory[] = [
       { name: 'JavaScript', level: 90 },
       { name: 'React.js', level: 85 },
       { name: 'Angular', level: 80 },
+      { name: 'Vue.js', level: 70 },
       { name: 'Bootstrap', level: 75 },
+      { name: 'Tailwind', level: 70 },
       { name: 'jQuery', level: 80 },
     ],
   },
@@ -55,6 +57,15 @@ const categories: SkillCategory[] = [
     skills: [
       { name: 'Figma', level: 65 },
       { name: 'Photoshop', level: 55 },
+    ],
+  },
+  {
+    title: 'AI Tools',
+    emoji: '🤖',
+    skills: [
+      { name: 'Claude Code', level: 85 },
+      { name: 'ChatGPT', level: 80 },
+      { name: 'Gemini', level: 75 },
     ],
   },
 ]

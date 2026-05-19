@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import { reactive } from 'vue'
 import { RouterLink } from 'vue-router'
 import { getShuffledPhotos } from '@/data/photos'
 import './PhotoSection.css'
 
 const previewPhotos = getShuffledPhotos().slice(0, 6)
+const loaded = reactive<Record<number, boolean>>({})
 </script>
 
 <template>
@@ -12,8 +14,22 @@ const previewPhotos = getShuffledPhotos().slice(0, 6)
       <h2 class="section-title">生活 <span>點滴</span></h2>
       <p class="section-subtitle">用相片記錄每個值得留念的時刻</p>
       <div class="photo-preview-grid">
-        <div v-for="photo in previewPhotos" :key="photo.id" class="photo-preview-item">
-          <img :src="photo.src" :alt="photo.alt" loading="lazy" />
+        <div
+          v-for="photo in previewPhotos"
+          :key="photo.id"
+          class="photo-preview-item"
+          :class="{ 'is-loading': !loaded[photo.id] }"
+        >
+          <div v-if="!loaded[photo.id]" class="img-spinner">
+            <div class="spinner"></div>
+          </div>
+          <img
+            :src="photo.src"
+            :alt="photo.alt"
+            :class="{ 'is-loaded': loaded[photo.id] }"
+            loading="lazy"
+            @load="loaded[photo.id] = true"
+          />
         </div>
       </div>
       <div class="photo-preview-cta">

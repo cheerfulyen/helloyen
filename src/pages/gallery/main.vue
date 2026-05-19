@@ -4,6 +4,7 @@ import { getShuffledPhotos, type Photo } from '@/data/photos'
 import './gallery.css'
 
 const displayPhotos = getShuffledPhotos()
+const loaded = reactive<Record<number, boolean>>({})
 
 const lightbox = reactive<{ photo: Photo | null; index: number }>({
   photo: null,
@@ -66,13 +67,24 @@ onUnmounted(() => {
           v-for="(photo, i) in displayPhotos"
           :key="photo.id"
           class="gallery-item"
+          :class="{ 'is-loading': !loaded[photo.id] }"
           role="button"
           tabindex="0"
           :aria-label="photo.alt"
           @click="openPhoto(photo, i)"
           @keydown.enter="openPhoto(photo, i)"
         >
-          <img :src="photo.src" :alt="photo.alt" class="gallery-img" loading="lazy" />
+          <div v-if="!loaded[photo.id]" class="img-spinner">
+            <div class="spinner"></div>
+          </div>
+          <img
+            :src="photo.src"
+            :alt="photo.alt"
+            class="gallery-img"
+            :class="{ 'is-loaded': loaded[photo.id] }"
+            loading="lazy"
+            @load="loaded[photo.id] = true"
+          />
         </div>
       </div>
     </div>

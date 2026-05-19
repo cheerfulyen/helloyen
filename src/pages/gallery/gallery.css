@@ -57,10 +57,41 @@
   background: rgba(15, 23, 42, 0.25);
 }
 
+.gallery-item.is-loading {
+  min-height: 160px;
+}
+
+.img-spinner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.spinner {
+  width: 26px;
+  height: 26px;
+  border: 3px solid rgba(56, 189, 248, 0.2);
+  border-top-color: #38bdf8;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
 .gallery-img {
   width: 100%;
   display: block;
-  transition: transform 0.4s ease;
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.gallery-img.is-loaded {
+  opacity: 1;
 }
 
 .gallery-item:hover .gallery-img,

@@ -75,8 +75,25 @@
 .hero-desc {
   font-size: 0.95rem;
   color: #94a3b8;
-  margin-bottom: 36px;
+  margin-bottom: 20px;
   line-height: 1.8;
+}
+
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.hero-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: rgba(56, 189, 248, 0.1);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.2);
 }
 
 .hero-actions {
@@ -179,6 +196,10 @@
   }
 
   .hero-badges {
+    justify-content: center;
+  }
+
+  .hero-tags {
     justify-content: center;
   }
 
