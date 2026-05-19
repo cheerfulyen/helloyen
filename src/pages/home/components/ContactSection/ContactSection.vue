@@ -59,7 +59,7 @@ const contacts = [
 
       <div class="contact-divider"></div>
       <p class="contact-footer-text">
-        擅長前端框架 Angular / React，具備金融業系統開發實務經驗，歡迎業界洽談合作。
+        擅長前端框架 Angular / React，具備金融業系統開發實務經驗。
       </p>
     </div>
     <footer class="footer">
