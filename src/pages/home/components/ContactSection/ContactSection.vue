@@ -63,7 +63,7 @@ const contacts = [
       </p>
     </div>
     <footer class="footer">
-      <p>© 2025 周彥宏 · 前端工程師 · Designed with Vue 3 + PrimeVue</p>
+      <p>© 2026 周彥宏 · 前端工程師 · Designed with Vue 3 + PrimeVue</p>
     </footer>
   </section>
 </template>
